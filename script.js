@@ -7,7 +7,9 @@ $(document).ready(function () {
     score: 0,
 
     addScore: function(score) {
-      score += this.score;
+      console.log("previous score: " + score)
+
+      console.log("new score: " + score);
     },
 
     winCounter: function (wins) {
@@ -43,6 +45,9 @@ $(document).ready(function () {
         imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
+        $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
+
+
         var addScore = this.numberOpp[i];
              
       }
@@ -59,20 +64,25 @@ $(document).ready(function () {
     },
 
     onCrystClick: function(){
-      game.imageCrystal.onclick(function(){
-        score = game.imageCrystal.numberOpp
+      // user clicks a crystal
 
-      })
+      addScore();
+
+
+      // game.imageCrystal.onclick(function(){
+      //   score = game.imageCrystal.numberOpp
+
+      // })
 
     }
 
   }
 
   // calling game.functions
-  game.dispRandNumb(2,70);
+  game.dispRandNumb(2,1000);
   game.createCrystal();
   game.scoreDisplay();
-  game.onCrystClick(addScore.bind(addScore, score));
+  game.onCrystClick(this.addScore);
   
 
 });
