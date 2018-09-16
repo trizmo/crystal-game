@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +18,7 @@
 
   <header>
 
-    <div>
+    <div class="container text-center">
       <h1> Crystal Game </h1>
     </div>
 
@@ -20,52 +26,63 @@
 
   <div>
 
-    <div>
-      <p>Here are the instructions</p>
-      <p> Howl on top of tall thing give me attention or face the wrath of my claws, yet spend all night ensuring people don't
-        sleep sleep all day yet lick the curtain just to be annoying and meow yet with tail in the air. Chase the pig around
-        the house meowing non stop for food or have my breakfast spaghetti yarn yet fooled again thinking the dog likes me
-        howl uncontrollably for no reason. Stretch missing until dinner time.
+    <div class="container">
+      <p class="text-center">Here are the instructions</p>
+      <p> Howl on top of tall thing give me attention or face the wrath of my claws, yet spend all night ensuring people
+        don't sleep sleep all day yet lick the curtain just to be annoying and meow yet with tail in the air. Chase the pig
+        around the house meowing non stop for food or have my breakfast spaghetti yarn yet fooled again thinking the dog
+        likes me howl uncontrollably for no reason. Stretch missing until dinner time.
       </p>
     </div>
 
   </div>
 
 
-  <div class="gameInfo">
-
-      <div>the random number
-
-        <div id="rand"></div>
 
 
-      </div>
-      
-      
-      <div>the crystal guesses
-
-
-      </div>
-      
-      
-      <div>wins and losses
-
-
-      </div>
-      
-      
-      <div>your score
-
-
-      </div>
-
-
-
-
+  <div class="container text-center" id="numbDisp">
+    <span class="score-text">your crystal score must add up to</span>
+    <br>
   </div>
+
+  <div class="container text-center" id="crystalDisp">
+  </div>
+
+  <div class="container text-center" id="scoreDisp">
+    </div>
+
+
+
 
 
 
 </body>
 
 </html>
+
+
+
+
+
+
+<!-- <div class="gameInfo">
+
+  <div>the random number
+
+    <div id="rand"></div>
+
+  </div>
+
+  <div>the crystal guesses
+
+  </div>
+
+  <div>wins and losses
+
+  </div>
+
+  <div>your score
+
+  </div>
+
+</div> -->

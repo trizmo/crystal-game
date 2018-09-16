@@ -1,0 +1,20 @@
+.crystal-img {
+  max-width: 150px;
+  margin: 10px;
+}
+
+.score-text{
+  font-size: 1.5rem;
+  color: darkred;
+
+}
+
+.randomNumber {
+  font-size: 3rem;
+  color: red;
+}
+
+.score {
+  font-size: 2rem;
+  color: darkred;
+}
