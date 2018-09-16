@@ -6,6 +6,10 @@ $(document).ready(function () {
     losses: 0,
     score: 0,
 
+    addScore: function(score) {
+      score += this.score;
+    },
+
     winCounter: function (wins) {
       wins++ ,
         console.log(wins);
@@ -24,7 +28,7 @@ $(document).ready(function () {
         randNumber.attr("id", "randNumb");
         randNumber.attr("data-randomNumber", this.randomizer(min, max))
         randNumber.text(this.randomizer(min, max))
-        console.log("WORKING randNumber is: " + this.randomizer(min, max)) 
+        console.log("Running dispRandNumb OK")
         $("#numbDisp").append(randNumber)
 
       },
@@ -39,12 +43,9 @@ $(document).ready(function () {
         imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
+        var addScore = this.numberOpp[i];
+             
       }
-
-    },
-
-    myclick: function(){
-      
 
     },
 
@@ -58,27 +59,21 @@ $(document).ready(function () {
     },
 
     onCrystClick: function(){
-      this.imageCrystal.on("click", function(){
-        score = this.numberOpp
+      game.imageCrystal.onclick(function(){
+        score = game.imageCrystal.numberOpp
 
       })
 
     }
 
-
-
-
-
   }
 
+  // calling game.functions
   game.dispRandNumb(2,70);
   game.createCrystal();
   game.scoreDisplay();
-  game.onCrystClick();
+  game.onCrystClick(addScore.bind(addScore, score));
   
-
-
-
 
 });
 
