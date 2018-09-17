@@ -6,7 +6,7 @@ $(document).ready(function () {
     losses: 0,
     score: 0,
 
-    addScore: function(score) {
+    addScore: function (score) {
       console.log("previous score: " + score)
 
       console.log("new score: " + score);
@@ -24,17 +24,17 @@ $(document).ready(function () {
       return Math.floor(Math.random() * (max - min) + min)
     },
 
-      dispRandNumb: function(min, max){
-        var randNumber = $("<span>");
-        randNumber.addClass("randomNumber");
-        randNumber.attr("id", "randNumb");
-        randNumber.attr("data-randomNumber", this.randomizer(min, max))
-        randNumber.text(this.randomizer(min, max))
-        console.log("Running dispRandNumb OK")
-        $("#numbDisp").append(randNumber)
+    dispRandNumb: function (min, max) {
+      var randNumber = $("<span>");
+      randNumber.addClass("randomNumber");
+      randNumber.attr("id", "randNumb");
+      randNumber.attr("data-randomNumber", this.randomizer(min, max))
+      randNumber.text(this.randomizer(min, max))
+      console.log("Running dispRandNumb OK")
+      $("#numbDisp").append(randNumber)
 
-      },
-        
+    },
+
     numberOpp: [3, 5, 8, 10],
     createCrystal: function () {
 
@@ -48,41 +48,46 @@ $(document).ready(function () {
         $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
 
 
-       
-             
+
+
+
       }
+
+
 
     },
 
-    scoreDisplay: function(){
+    scoreDisplay: function () {
       var scoreDisp = $("<span>");
       scoreDisp.addClass("score");
       scoreDisp.attr("data-score", this.score);
       scoreDisp.text("Current Score: " + this.score);
       $("#scoreDisp").append(scoreDisp);
-      
+
     },
 
 
-    onCrystClick: function(){
 
-      $("#crystalDisp").on("click", function(){
-        console.log("crystal clicked! number is: " + this.numberOpp);
-      });
-      
+  } // end of game object
 
 
+  var score = $("#crystalDisp").on("click", function () {
+    console.log("crystal clicked! number is: " + game.numberOpp);
+  });
 
-    }
-
+  function boundFn() { 
+    score.bind(game)
   }
+  boundFn();
+
+
 
   // calling game.functions
-  game.dispRandNumb(2,1000);
+  game.dispRandNumb(2, 1000);
   game.createCrystal();
   game.scoreDisplay();
-  game.onCrystClick();
-  
+  // game.onCrystClick();
+
 
 });
 
