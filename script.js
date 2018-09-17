@@ -1,10 +1,11 @@
 $(document).ready(function () {
+  score = 0;
 
 
   var game = {
     wins: 0,
     losses: 0,
-    score: 0,
+    xscore: 0,
 
     addScore: function (score) {
       console.log("previous score: " + score)
@@ -46,24 +47,20 @@ $(document).ready(function () {
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
         $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
-        imageCrystal.onClick = function() {
-          console.log("terrance test: " + $(this).data("crystalvalue"));
-        }
+        imageCrystal.click(function() {
+          points = ($(this).data("crystalvalue"));
+          score = points + score;
+          console.log("score is: " + score)
+          console.log("random number is: " + this.randNumber)
+          $("#scoreDisp").html(score);
+          if(score === this.randNumber){
+            alert("winner");
 
-        // var points = $("#crystalDisp").on("click", function () {
-        //   console.log("crystal clicked! number is: " + this.numberOpp)
-        // });
-      
-        // function boundFn() { 
-        //   points.bind(game)
-        // }
-        // boundFn();
+          }
 
-
+        });
 
       }
-
-
 
     },
 
@@ -72,7 +69,7 @@ $(document).ready(function () {
       scoreDisp.addClass("score");
       scoreDisp.attr("data-score", this.score);
       scoreDisp.text("Current Score: " + this.score);
-      $("#scoreDisp").append(scoreDisp);
+      
 
     },
 
@@ -81,22 +78,13 @@ $(document).ready(function () {
   } // end of game object
 
 
-  // var score = $("#crystalDisp").on("click", function () {
-  //   console.log("crystal clicked! number is: " + game.numberOpp;
-  // });
-
-  // function boundFn() { 
-  //   score.bind(game)
-  // }
-  // boundFn();
-
 
 
   // calling game.functions
-  game.dispRandNumb(2, 1000);
+  game.dispRandNumb(1, 50);
   game.createCrystal();
   game.scoreDisplay();
-  // game.onCrystClick();
+ 
 
 
 });
