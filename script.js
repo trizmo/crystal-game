@@ -63,16 +63,15 @@ $(document).ready(function () {
       
     },
 
+
     onCrystClick: function(){
-      // user clicks a crystal
 
-      addScore();
+      $("#crystalDisp").on("click", function(){
+        console.log("crystal clicked! number is: " + this.numberOpp);
+      });
+      
 
 
-      // game.imageCrystal.onclick(function(){
-      //   score = game.imageCrystal.numberOpp
-
-      // })
 
     }
 
@@ -82,7 +81,7 @@ $(document).ready(function () {
   game.dispRandNumb(2,1000);
   game.createCrystal();
   game.scoreDisplay();
-  game.onCrystClick(this.addScore);
+  game.onCrystClick();
   
 
 });
