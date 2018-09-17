@@ -48,7 +48,7 @@ $(document).ready(function () {
         $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
 
 
-        var addScore = this.numberOpp[i];
+       
              
       }
 
