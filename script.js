@@ -112,9 +112,10 @@ $(document).ready(function () {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-img img-fluid");
         imageCrystal.attr("id", "crystals")
-        var charPicker = Math.floor(Math.random() * (14) + 0);
+        var charPicker = Math.floor(Math.random() * (13) + 0);
 
         imageCrystal.attr("src", this.chars[charPicker]);
+        console.log(this.chars[charPicker]);
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
         // $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
