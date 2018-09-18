@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Kranky|Press+Start+2P" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="script.js"></script>
@@ -18,27 +19,30 @@
 
   <header>
 
-    <div class="container text-center">
-      <h1> Crystal Game </h1>
+    <div class="container-fluid text-center head">
+      <span class="title"> Regular Clicker! </span>
     </div>
 
   </header>
 
-  <div>
+  <div class="container">
 
-    <div class="container">
+    <div class="text-center info-card">
       <p class="text-center">Here are the instructions</p>
-      <p> Howl on top of tall thing give me attention or face the wrath of my claws, yet spend all night ensuring people
-        don't sleep sleep all day yet lick the curtain just to be annoying and meow yet with tail in the air. Chase the pig
-        around the house meowing non stop for food or have my breakfast spaghetti yarn yet fooled again thinking the dog
-        likes me howl uncontrollably for no reason. Stretch missing until dinner time.
-      </p>
+      <div class="instruction-body">
+        <p> You will be given a Random Number at the start of the game</p>
+        <p>There are four Regular Show Characters below. By clicking on one of them you will add a specific amount of points
+          to your total score.</p>
+        <p>You win the game by matching your total score to the random number. Benson fires you for going over that number</p>
+        <p>The value of each crystal is hidden from you until you click on it.</p>
+        <p>Each character will have a different value for each round.</p>
+      </div>
     </div>
 
   </div>
 
 
-  <div class="container">
+  <div class="container game-info">
     <div class="row">
 
       <div class="container text-center col-md-4" id="winloss">
@@ -51,7 +55,7 @@
       </div>
 
       <div class="container text-center col-md-4" id="nextround">
-        
+        good luck!
       </div>
 
 
@@ -94,26 +98,3 @@
 
 
 
-
-
-<!-- <div class="gameInfo">
-
-  <div>the random number
-
-    <div id="rand"></div>
-
-  </div>
-
-  <div>the crystal guesses
-
-  </div>
-
-  <div>wins and losses
-
-  </div>
-
-  <div>your score
-
-  </div>
-
-</div> -->
