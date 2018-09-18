@@ -5,7 +5,8 @@ $(document).ready(function () {
   var game = {
     wins: 0,
     losses: 0,
-    xscore: 0,
+    score: 0,
+    random: 0,
 
     addScore: function (score) {
       console.log("previous score: " + score)
@@ -22,23 +23,24 @@ $(document).ready(function () {
         console.log(loss);
     },
     randomizer: function (min, max) {
-      return Math.floor(Math.random() * (max - min) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
 
     dispRandNumb: function (min, max) {
-      var randNumber = $("<span>");
+      random = this.randomizer(min, max)
+      randNumber = $("<span>");
       randNumber.addClass("randomNumber");
       randNumber.attr("id", "randNumb");
-      randNumber.attr("data-randomNumber", this.randomizer(min, max))
-      randNumber.text(this.randomizer(min, max))
-      console.log("Running dispRandNumb OK")
+      randNumber.attr("data-randomNumber", random)
+      randNumber.text(random)
+      console.log("Running dispRandNumb OK: " + this.random)
       $("#numbDisp").append(randNumber)
 
     },
 
-    numberOpp: [3, 5, 8, 10],
+    numberOpp: [2, 5, 7, 10],
     createCrystal: function () {
-
+      var points;
       for (var i = 0; i < this.numberOpp[i]; i++) {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-img img-fluid");
@@ -47,16 +49,20 @@ $(document).ready(function () {
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
         $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
-        imageCrystal.click(function() {
+        imageCrystal.click(function () {
           points = ($(this).data("crystalvalue"));
-          score = points + score;
-          console.log("score is: " + score)
-          console.log("random number is: " + this.randNumber)
-          $("#scoreDisp").html(score);
-          if(score === this.randNumber){
+          game.score += points;
+          console.log("score is: " + game.score);
+          console.log("randomNumber is: " + game.random);
+          $("#crysClicks").prepend('<p>' + "crystal click worth: " + points + '</p>');
+          $("#scoreDisp").html(game.score);
+         
+          
+          if (game.score === game.random) {
             alert("winner");
-
+            console.log("random number is: " + game.random)
           }
+
 
         });
 
@@ -69,7 +75,8 @@ $(document).ready(function () {
       scoreDisp.addClass("score");
       scoreDisp.attr("data-score", this.score);
       scoreDisp.text("Current Score: " + this.score);
-      
+      $("#scoreDisp").html(this.score);
+
 
     },
 
@@ -80,11 +87,22 @@ $(document).ready(function () {
 
 
 
+
+
+
+
   // calling game.functions
-  game.dispRandNumb(1, 50);
+  game.dispRandNumb(21, 31);
   game.createCrystal();
-  game.scoreDisplay();
- 
+  // game.scoreDisplay();
+
+
+
+  if (score === this.randNumber) {
+    alert("winner");
+    console.log("random number is: " + game.randNumber)
+  }
+
 
 
 });

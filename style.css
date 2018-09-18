@@ -1,9 +1,10 @@
 .crystal-img {
   max-width: 150px;
   margin: 10px;
+  border-radius: 5px;
 }
 
-.score-text{
+#scoreDisp{
   font-size: 1.5rem;
   color: darkred;
 
