@@ -6,6 +6,7 @@ $(document).ready(function () {
     score: 0,
     randomNumber: 0,
     gameStatus: true,
+    charArr: [],
     numberOpp: [],
     lastRoundWon: false,
     lastRoundLost: false,
@@ -35,9 +36,15 @@ $(document).ready(function () {
     // ## CONTAINS GAME SETTINGS
     startGame: function () {
       this.dispRandNumb(19, 120);
+      this.pickChars(4);
       this.createNumberOpp(4);
       this.createCrystal();
       this.display();
+    },
+
+    userReady: function() {
+      confirm("ready?");
+      this.startGame();
     },
 
     display: function () {
@@ -101,8 +108,28 @@ $(document).ready(function () {
           this.numberOpp.push(rand);
           console.log("pushed")
         }
-        console.log(this.numberOpp)
+        console.log("char values: " + this.numberOpp)
       }
+
+    },
+
+    pickChars: function(NOC) {
+    charArr = [];
+
+      while (this.charArr.length != 4) {
+        var charPicker = Math.floor(Math.random() * (12) + 1)
+        console.log("Random Char: " + charPicker)
+        // this.numberOpp.push(rand);
+        if (this.charArr.includes(charPicker)) {
+          console.log("char SKIPPED");
+        }
+        else {
+          this.charArr.push(charPicker);
+          console.log("char pushed")
+        }
+        console.log("charArr: " + charArr)
+      }
+
 
     },
 
@@ -112,10 +139,8 @@ $(document).ready(function () {
         var imageCrystal = $("<img>");
         imageCrystal.addClass("crystal-img img-fluid");
         imageCrystal.attr("id", "crystals")
-        var charPicker = Math.floor(Math.random() * (13) + 0);
-
-        imageCrystal.attr("src", this.chars[charPicker]);
-        console.log(this.chars[charPicker]);
+        imageCrystal.attr("src", game.chars[game.charArr[i]]);
+        console.log(game.charArr);
         imageCrystal.attr("data-crystalvalue", this.numberOpp[i])
         $("#crystalDisp").append(imageCrystal);
         // $("#crystalNoDisp").append(this.numberOpp[i] + " " + "-" + " ");
@@ -161,7 +186,7 @@ $(document).ready(function () {
   } // end of game object
 
   // calling game.functions
-  game.startGame();
+  game.userReady();
 
 });
 
