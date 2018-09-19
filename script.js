@@ -56,6 +56,7 @@ $(document).ready(function () {
       if (this.gameStatus === false) {
         this.gameStatus = true;
         game.numberOpp = [];
+        game.charArr = [];
         $("#crystalDisp").html("");
         game.startGame();
         game.score = 0;
