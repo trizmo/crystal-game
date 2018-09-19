@@ -40,11 +40,21 @@ $(document).ready(function () {
       this.createNumberOpp(4);
       this.createCrystal();
       this.display();
+      $("#starter").hide();
     },
 
     userReady: function() {
-      confirm("ready?");
-      this.startGame();
+      
+console.log("userReady RUNNING")
+      var usrRed = $("<span>");
+      usrRed.text("[ Click Here To Start ]")
+      $("#starter").html(usrRed);
+      $("#starter").on("click", function() {
+        game.startGame();
+      })
+
+
+
     },
 
     display: function () {
